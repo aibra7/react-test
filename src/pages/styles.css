@@ -1,0 +1,38 @@
+.pageContainer {
+  padding: 20px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.submitButton {
+  width: 100%;
+  margin-top: 30px;
+}
+
+@media only screen and (min-width: 600px) {
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .formLabel {
+    width: 200px;
+    margin: 5px 10px 0 0;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .formGroup {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .formLabel {
+    width: 200px;
+    margin: 5px 10px 0 0;
+  }
+}
