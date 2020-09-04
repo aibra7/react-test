@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import { Button, Form } from 'react-bootstrap';
 
 const PaymentForm = ({ cardTypes, setFormVisibility }) => {
-  console.log(cardTypes)
-  const [cardTypeSelected, setCardType] = useState('Test');
+  const [cardTypeSelected, setCardType] = useState(cardTypes[0].value);
 
   return (
     <Form>
@@ -44,6 +43,7 @@ const PaymentForm = ({ cardTypes, setFormVisibility }) => {
           className="submitButton"
           onClick={event => {
             event.preventDefault();
+            // add check if form is valid
             setFormVisibility(false);
           }}
         >

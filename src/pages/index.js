@@ -29,12 +29,13 @@ export default () => {
           <p>Amount: 1123.03 USD</p>
         </Col>
         <Col xs={12} sm={12} md={6} lg={6}>
-          {showPaymentForm ? (
+          {showPaymentForm && cardTypes.length > 0 && (
             <PaymentForm
               cardTypes={cardTypes}
               setFormVisibility={setFormVisibility}
             />
-          ) : (
+          )}
+          {!showPaymentForm && (
             <div className="info">
               <p>123</p>
               <p>Invoice: </p>
