@@ -23,12 +23,12 @@ export default () => {
   return (
     <Container className="pageContainer">
       <Row>
-        <Col xs={8} sm={8} md={6} lg={6} className="info">
+        <Col xs={12} sm={12} md={6} lg={6} className="info">
           <p>Product: ABCD</p>
           <p>Date: {date}</p>
           <p>Amount: 1123.03 USD</p>
         </Col>
-        <Col xs={8} sm={8} md={6} lg={6}>
+        <Col xs={12} sm={12} md={6} lg={6}>
           {showPaymentForm ? (
             <PaymentForm
               cardTypes={cardTypes}

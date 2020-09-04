@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { Button, Form } from 'react-bootstrap';
 
 const PaymentForm = ({ cardTypes, setFormVisibility }) => {
-  const [cardTypeSelected, setCardType] = useState('');
+  console.log(cardTypes)
+  const [cardTypeSelected, setCardType] = useState('Test');
 
   return (
     <Form>
@@ -12,7 +13,6 @@ const PaymentForm = ({ cardTypes, setFormVisibility }) => {
         <Form.Control
           as="select"
           defaultValue={cardTypeSelected}
-          placeholder="Card"
           onChange={event => setCardType(event.target.value)}
         >
           {cardTypes.map(cardType => (
@@ -36,17 +36,20 @@ const PaymentForm = ({ cardTypes, setFormVisibility }) => {
         <Form.Label className="formLabel">Email</Form.Label>
         <Form.Control type="email" />
       </Form.Group>
-      <Button
-        variant="primary"
-        type="submit"
-        className="submitButton"
-        onClick={event => {
-          event.preventDefault();
-          setFormVisibility(false);
-        }}
-      >
-        Confirm Payment
-      </Button>
+      <Form.Group className="formGroup">
+        <Form.Label  className="formLabel"/>
+        <Button
+          variant="primary"
+          type="submit"
+          className="submitButton"
+          onClick={event => {
+            event.preventDefault();
+            setFormVisibility(false);
+          }}
+        >
+          Confirm Payment
+        </Button>
+      </Form.Group>
     </Form>
   );
 };
