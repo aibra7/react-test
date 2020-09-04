@@ -24,10 +24,8 @@ const validateForm = values => {
     errors.nameInvalid = true;
   }
 
-  if (values.email) {
-    if (!/\S+@\S+\.\S+/.test(values.email)) {
-      errors.emailInvalid = true;
-    }
+  if (values.email && !/\S+@\S+\.\S+/.test(values.email)) {
+    errors.emailInvalid = true;
   }
 
   return errors;

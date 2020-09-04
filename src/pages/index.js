@@ -7,6 +7,8 @@ import PaymentForm from './PaymentForm';
 export default () => {
   const [showPaymentForm, setFormVisibility] = useState(true);
   const [cardTypes, setCardTypes] = useState([]);
+  const [responseMessage, setResponseMessage] = useState({ message: '', success: true });
+  const { message, success } = responseMessage;
   const date = new Date().toLocaleString();
 
   useEffect(() => {
@@ -33,12 +35,16 @@ export default () => {
             <PaymentForm
               cardTypes={cardTypes}
               setFormVisibility={setFormVisibility}
+              setResponseMessage={setResponseMessage}
             />
           )}
-          {!showPaymentForm && (
-            <div className="info">
-              <p>123</p>
-              <p>Invoice: </p>
+          {!showPaymentForm && message && (
+            <div className={`info ${success ? 'successMessage' : 'failMessage'}`}>
+              <p>{success ?
+                'Your payment has been successefully processed.'
+                : message}
+              </p>
+              {success && <p>Invoice: {message}</p>}
             </div>
           )}
         </Col>

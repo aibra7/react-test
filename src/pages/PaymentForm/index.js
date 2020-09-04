@@ -4,14 +4,19 @@ import usePaymentForm from './usePaymentForm';
 import validateForm from './formValidations'
 import { Button, Form } from 'react-bootstrap';
 
-const PaymentForm = ({ cardTypes, setFormVisibility }) => {
+const PaymentForm = ({ cardTypes, setFormVisibility, setResponseMessage }) => {
   const cardType = cardTypes[0].value;
   const {
     values,
     errors,
     handleChange,
     handleSubmit,
-  } = usePaymentForm(setFormVisibility, validateForm, cardType);
+  } = usePaymentForm(
+    setFormVisibility,
+    validateForm,
+    cardType,
+    setResponseMessage,
+  );
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -69,6 +74,7 @@ const PaymentForm = ({ cardTypes, setFormVisibility }) => {
 PaymentForm.propTypes = {
   cardTypes: PropTypes.array.isRequired,
   setFormVisibility: PropTypes.func.isRequired,
+  setResponseMessage: PropTypes.func.isRequired,
 };
 
 export default PaymentForm;
