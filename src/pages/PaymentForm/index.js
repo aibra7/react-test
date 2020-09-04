@@ -13,8 +13,6 @@ const PaymentForm = ({ cardTypes, setFormVisibility }) => {
     handleSubmit,
   } = usePaymentForm(setFormVisibility, validateForm, cardType);
 
-  console.log(errors);
-
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group controlId="formCardType" className="formGroup">
@@ -32,19 +30,27 @@ const PaymentForm = ({ cardTypes, setFormVisibility }) => {
       </Form.Group>
       <Form.Group controlId="formCardNumber" className="formGroup">
         <Form.Label className="formLabel">Card Number</Form.Label>
-        <Form.Control type="text" name="cardNumber" onChange={handleChange} />
+        <Form.Control type="text" name="cardNumber" onChange={handleChange}
+                      className={errors.cardNumberInvalid ? 'invalid' : ''}
+        />
       </Form.Group>
       <Form.Group controlId="formExpiry" className="formGroup">
         <Form.Label className="formLabel">Expiry</Form.Label>
-        <Form.Control type="text" name="expiry" onChange={handleChange} />
+        <Form.Control type="text" name="expiry" onChange={handleChange}
+                      className={errors.expiryInvalid ? 'invalid' : ''}
+        />
       </Form.Group>
       <Form.Group controlId="formName" className="formGroup">
         <Form.Label className="formLabel">Name</Form.Label>
-        <Form.Control type="text" name="name" onChange={handleChange} />
+        <Form.Control type="text" name="name" onChange={handleChange}
+                      className={errors.nameInvalid ? 'invalid' : ''}
+        />
       </Form.Group>
       <Form.Group controlId="formEmail" className="formGroup">
         <Form.Label className="formLabel">Email</Form.Label>
-        <Form.Control type="email" name="email" onChange={handleChange} />
+        <Form.Control type="email" name="email" onChange={handleChange}
+                      className={errors.emailInvalid ? 'invalid' : ''}
+        />
       </Form.Group>
       <Form.Group className="formGroup">
         <Form.Label  className="formLabel"/>

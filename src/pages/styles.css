@@ -12,6 +12,10 @@
   margin-top: 30px;
 }
 
+.invalid {
+  border: 1px solid red;
+}
+
 @media only screen and (min-width: 600px) {
   .formGroup {
     display: flex;
